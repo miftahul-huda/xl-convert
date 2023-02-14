@@ -1,0 +1,16 @@
+Replacing...
+================ REPLACE 'FROM' TABLES...=====================
+
+================ REPLACE 'JOIN' TABLES...=====================
+
+================ REPLACE 'INTO' TABLES...=====================
+
+================ REPLACE 'CREATE' TABLES...=====================
+
+================ REPLACE 'DROP' TABLES...=====================
+
+================ REPLACE 'TRUNCATE' TABLES...=====================
+
+================ REPLACE 'DELETE' TABLES...=====================
+
+Cleaning...

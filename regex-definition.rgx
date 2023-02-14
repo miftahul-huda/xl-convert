@@ -1,0 +1,43 @@
+Lowercase table name === (from|into|join|create\s+table|drop\s+table\s+if\s+exists)\s*(\w+)\.(\w*) === LOWERCASE
+Uppercase SQL Keywords === select|from|into|join|drop|table|if|exists|create === UPPERCASE
+Replace Interval Datesub === (CURRENT_DATE\(*[A-Za-z'/]*\))*\s*\+\s*interval\s+'-([0-9]+)\s+([A-Za-z]+)' === DATE_SUB($1, INTERVAL $2 $3)
+Replace DATE_TRUNC === date_trunc\s*\('(\w+)',\s*(.+)\s*\)::date === date_trunc($2, $1)
+Replace pgsql '~' WITH REGEXP_CONTAINS === when\s(.*)\s+~\s+('.*') === WHEN REGEXP_CONTAINS($1, r$2)
+Replace pgsql '~' with REGEXP_CONTAINS 00  === (\w+)\s*~\s*'(.*)'\s+then === REGEXP_CONTAINS($1, r'$2') then
+Replace pgsql '~('')'' with REGEXP_CONTAINS 0I  === (\w+)\s*~\s*\('(.*)'\)\s+then === REGEXP_CONTAINS($1, r'$2') then
+Replace pgsql 'LOWER() ~' with REGEXP_CONTAINS OII  === (\w+\(\w+\))\s*~\s*'(.*)'\s+then === REGEXP_CONTAINS($1, r'$2') then
+Replace pgsql '~' with REGEXP_CONTAINS  === (\w+)\s*~\s*'(.*)' === REGEXP_CONTAINS($1, r'$2')
+Replace pgsql '~ ('')' with REGEXP_CONTAINS II  === (\w+)\s*~\s*\('(.*)'\) === REGEXP_CONTAINS($1, r'$2')
+Replace pgsql 'LOWER() ~' with REGEXP_CONTAINS III  === (\w+\(\w+\))\s*~\s*'(.*)' === REGEXP_CONTAINS($1, r'$2')
+Replace pgsql '!~' with NOT REGEXP_CONTAINS  === (\w+)\s*!~\s*'(.*)' === NOT REGEXP_CONTAINS($1, r'$2')
+Replace pgsql '~*' with REGEXP_CONTAINS  === (\w+)\s*~\s*\*\s*'(.*)' === REGEXP_CONTAINS($1, r'(?i)$2')
+Replace pgsql similar to 0 === (\s)([A-Za-z0-9\(\),._]*)\s+similar\s+to\s+'%\((.*)\)%' === $1REGEXP_CONTAINS($2, r'$3')
+Replace pgsql Similar to === (\w[\.]*\w+)\s+similar\s+to\s+'%\((.*)\)%' === REGEXP_CONTAINS($1, r'$2')
+Fixing some nasty result === THEN\s+'(\w+)'\) === ) THEN '$1'
+Replace Distributed BY === DISTRIBUTED\s*BY\s*\(.*\)\s*; === ;  
+Replace Current_DATE === CURRENT_DATE === HAHAHA
+Replace Current_DATE === HAHAHA === CURRENT_DATE('Asia/Jakarta')
+Replace current_timestamp === current_timestamp === CURRENT_DATETIME('Asia/Jakarta')
+Replace TO_CHAR === TO_CHAR\( === FORMAT_DATE('%Y%m%d',
+Fixing some nasty result === ,\s+'YYYYMMDD' === 
+Replace :: 1 === (\w+)::(\w+) === CAST($1 AS $2)
+Replace :: 2 === (\w+)\.CAST\( === CAST($1.
+Replace :: 3 === '(.+)'::(\w+) === CAST('$1' AS $2)
+Replace Data type varchar === VARCHAR\(\w+\) === STRING
+Replace Data type varchar === VARCHAR === STRING
+Replace Data Type BIGINT === BIGINT === INT64
+Replace Data Type TEXT === TEXT === STRING
+Replace GRANT === GRANT === --GRANT
+Replace CUBE === CUBE === ROLLUP
+Replace "BASE" === "BASE" === BASE
+Replace UNION === UNION === HAHAHAHA
+Replace UNION === HAHAHAHA === UNION ALL
+Replace set optimizer === set optimizer === HAHAHA
+Replace set optimizer === HAHAHA === -- set optimizer
+Replace UNION ALL ALL === UNION ALL ALL === HAHAHA
+Replace UNION ALL ALL === HAHAHA === UNION ALL
+
+
+
+
+

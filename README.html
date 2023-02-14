@@ -1,0 +1,40 @@
+<h1><span style="font-family:Arial,Helvetica,sans-serif"><strong>XL Script Converter</strong></span></h1>
+
+<h2>&nbsp;</h2>
+
+<h2><span style="font-family:Arial,Helvetica,sans-serif">Instalasi</span></h2>
+
+<p><span style="font-family:Arial,Helvetica,sans-serif">- Install Python terutama Python 3.10.6<br />
+- Unzip xl-convert.zip<br />
+- Masuk ke directory xl-convert<br />
+- Run <strong><em>source xl-convert/bin/activate&nbsp;</em></strong>untuk mengaktifkan virtual environment</span><br />
+&nbsp;</p>
+
+<h2><span style="font-family:Arial,Helvetica,sans-serif">Converting Script to BQ:</span></h2>
+
+<p><span style="font-family:Arial,Helvetica,sans-serif">Cara penggunaan:<br />
+<em><strong>python xl-convert.py -q &lt;nama-file-sql&gt; -r regex-definition.rgx -o &lt;nama-file-output&gt;</strong></em></span></p>
+
+<p><span style="font-family:Arial,Helvetica,sans-serif">- nama-file-sql, file yang berisi kode SQL script yang akan diconvert<br />
+- nama-file-output, file yang berisi hasil konversi</span></p>
+
+<p><span style="font-family:Arial,Helvetica,sans-serif">Contoh:</span></p>
+
+<p><span style="font-family:Arial,Helvetica,sans-serif"><em>python xl-convert.py -q script.sql -r regex-definition.rgx -o output.sql</em></span></p>
+
+<h2><span style="font-family:Arial,Helvetica,sans-serif">Replace Nama Tabel</span></h2>
+
+<p><span style="font-family:Arial,Helvetica,sans-serif">Program ini untuk menambahkan nama project di tabel-tabel yang ada di script dengan mencarinya di daftar nama-nama tabel yang ada di BigQuery XL yang bisa diakses oleh user devo.adhis.&nbsp;<br />
+<br />
+Cara penggunaan:<br />
+<em><strong>python replace-query-tables.py -q &lt;nama-sql-file&gt; -s xl-alltables.txt -o output.sql</strong></em><br />
+- nama-file-sql, file yang berisi kode SQL script yang akan diconvert<br />
+- nama-file-output, file yang berisi hasil konversi</span></p>
+
+<p><span style="font-family:Arial,Helvetica,sans-serif">Tambahan:<br />
+<strong>xl-alltables.txt </strong>berisi list nama-nama tabel yang ada di BigQuery XL yang bisa diakses oleh user devo.adhis.<br />
+Untuk mengupdate datanya:<br />
+- Login sebagai user <em>devo.adhis</em> dengan menjalankan&nbsp;<em><strong>gcloud auth application-default login<br />
+-&nbsp;</strong></em>Jalankan&nbsp;<em><strong>gcp-get-projects-and-tables.py &gt; xl-alltables.txt</strong></em></span></p>
+
+<p>&nbsp;</p>
